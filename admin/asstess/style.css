@@ -1,0 +1,432 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --light-bg: #f8f9fa;
+    --sidebar-width: 250px;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    background-color: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px 0;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Sidebar Brand */
+.sidebar-brand {
+    padding: 0 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-brand h3 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidebar-brand p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin: 5px 0 0;
+}
+
+/* =========================
+   NAVIGATION LINKS
+========================= */
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    margin: 5px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-link span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link i {
+    width: 25px;
+    text-align: center;
+}
+
+/* Hover & Active */
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* =========================
+   SUBMENU (USERS)
+========================= */
+.sidebar .collapse {
+    margin-top: 5px;
+}
+
+/* Submenu items */
+.sidebar .collapse .nav-link {
+    padding: 10px 20px;
+    margin: 4px 25px;
+    font-size: 0.88rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    transform: none;
+}
+
+/* Submenu hover */
+.sidebar .collapse .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(3px);
+}
+
+/* Submenu icons */
+.sidebar .collapse .nav-link i {
+    width: 20px;
+    font-size: 0.8rem;
+}
+
+/* Arrow rotation */
+.nav-link[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Arrow animation */
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+    margin-left: var(--sidebar-width);
+    }
+
+/* =========================
+   CARDS
+========================= */
+.stats-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: none;
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   USER AVATAR
+========================= */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* =========================
+   RECENT ACTIVITY
+========================= */
+.recent-activity {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.activity-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef2ff;
+    color: var(--primary-color);
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 5px;
+    }
+
+    .sidebar .nav-text {
+        display: none;
+    }
+
+    .sidebar-brand h3,
+    .sidebar-brand p {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .nav-link {
+        margin: 5px 5px;
+        padding: 12px 15px;
+        justify-content: center;
+    }
+
+    .nav-link span {
+        justify-content: center;
+    }
+
+    .nav-link i {
+        width: 100%;
+    }
+
+    /* Submenu mobile fix */
+    .sidebar .collapse .nav-link {
+        margin: 4px 10px;
+        padding: 10px;
+    }
+}
+
+/* =========================
+   SUBMENU (SETTINGS)
+========================= */
+/* Settings submenu specific styling if needed */
+#settingsSubmenu .nav-link {
+    padding: 10px 20px;
+    margin: 4px 25px;
+    font-size: 0.88rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    transform: none;
+}
+
+/* Settings submenu hover */
+#settingsSubmenu .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(3px);
+}
+
+/* Settings submenu icons */
+#settingsSubmenu .nav-link i {
+    width: 20px;
+    font-size: 0.8rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+
+    /* Settings submenu mobile fix */
+    #settingsSubmenu .nav-link {
+        margin: 4px 10px;
+        padding: 10px;
+    }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES (≤576px)
+========================= */
+@media (max-width: 576px) {
+    /* Further reduce sidebar width */
+    .sidebar {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 15px 12px;
+    }
+
+    /* Adjust stats cards for better stacking */
+    .stats-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .stats-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    /* Smaller font for card values */
+    .stats-card h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Recent activity adjustments */
+    .recent-activity {
+        padding: 15px;
+    }
+
+    .activity-item {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+
+    .activity-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    /* Submenu items: make them slightly more compact */
+    .sidebar .collapse .nav-link,
+    #settingsSubmenu .nav-link {
+        margin: 4px 8px;
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    /* Hide submenu text on extremely small screens? 
+       Optional: if you want icons only, uncomment below */
+    /*
+    .sidebar .collapse .nav-link span span,
+    #settingsSubmenu .nav-link span span {
+        display: none;
+    }
+    .sidebar .collapse .nav-link i,
+    #settingsSubmenu .nav-link i {
+        width: 100%;
+        text-align: center;
+    }
+    */
+}
+
+/* =========================
+   IMPROVED SIDEBAR SUBMENU ON MOBILE
+   (Ensures submenu items don't overflow)
+========================= */
+@media (max-width: 768px) {
+    /* Keep submenu items readable and prevent horizontal scroll */
+    .sidebar .collapse .nav-link,
+    #settingsSubmenu .nav-link {
+        white-space: normal;
+        word-break: break-word;
+        text-align: left;
+    }
+
+    /* Adjust arrow icon position for collapsed parent links */
+    .nav-link {
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Hide arrow on mobile if desired (optional) */
+    .nav-link .fa-chevron-down {
+        display: none; /* or keep, but it might overlap */
+    }
+}
+
+/* =========================
+   TABLET PORTRAIT (576px - 768px)
+   Fine-tune spacing
+========================= */
+@media (min-width: 577px) and (max-width: 768px) {
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .stats-card {
+        padding: 18px;
+    }
+
+    /* Ensure cards in rows have consistent height */
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+
+    .col-md-6, .col-lg-3 {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+.chart-container {
+    width: 600px;
+    height: 400px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th,
+td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
